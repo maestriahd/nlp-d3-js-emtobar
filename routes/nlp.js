@@ -10,7 +10,7 @@ const fs = require('fs');
 /* GET home page. */
 router.get('/', function(req, res) {
   // obtiene un texto aleatorio de discursos presidenciales
-  var txt = fs.readFileSync(__dirname+'/manifesto.txt', "utf8");
+var txt = fs.readFileSync (__dirname+'/intelligenceofflowers.txt', 'utf8');
   // var txt = corpus.sotu.random();
 
   // entrega el texto al motor de NLP

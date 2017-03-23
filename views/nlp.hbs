@@ -12,46 +12,46 @@
 <script type="text/javascript">
 (function() {
   // map tomado de p5.js
-  function map(n, start1, stop1, start2, stop2) {
-    return ((n-start1)/(stop1-start1))*(stop2-start2)+start2;
+  function map(input, re1, re2, rs1, rs2) {
+    return ((input-re1)/(re2 - re1)*(rs2 - rs1) + re1);
   };
   // Función encargadad de la visualización de datos por medio de D3
   function viz(data){
     // selecciona la división donde se inyectará el SVG
     var svg = d3.select('#viz')
       .append('svg') // agrega un elemento SVG
-      .attr('width', 400) // al SVG le agrega el atributo ancho de 400px
-      .attr('height', 200) // al SVG le agrega el atributo alto de 200px
+      .attr('width', 800) // al SVG le agrega el atributo ancho de 400px
+      .attr('height', 400) // al SVG le agrega el atributo alto de 200px
 
-    var elem = svg.selectAll('g') // selecciona todos los elementos `g` (grupos)
+    var group = svg.selectAll('g') // selecciona todos los elementos `g` (grupos)
       .data(data) // enlaza los datos
 
-    var elemEnter = elem.enter()
+    var elemEnter = group.enter()
         .append('g') // agrega un grupo
         .attr('transform', function(d,i){ // aplica una transformación al elemento
-          return "translate("+(80*i+40)+", 80)" // calcula la posción relativo a
+          return "translate("+(300*i+160)+", 230)" // calcula la posción relativo a
                                                 // los datos
         })
 
     var circulo = elemEnter.append('circle') // agrega un circulo
-      .attr('stroke', 'black') // la línea de contorno será negra
+      .attr('stroke', 'red') // la línea de contorno será negra
       .attr('fill', function(d){ // el color de relleno se aplica según el
                                  // resultado de esta función
         if(d.name === 'sustantivos'){     // si el elemento actual es el sustantivo
-          return 'green'  // el color de relleno será verde
+          return 'blue'  // el color de relleno será azul
         } else {          // de lo contrario
-          return 'red'    // el color de relleno será rojo
+          return 'yellow'    // el color de relleno será amarillo
         }
       })
 
       .attr('r', function(d){ // el radio dependerá de los items en el array
-        return map(d.count, 0, 3863, 10, 50)
+        return map(d.count, 10, 900, 0, 30)
       })
 
     // crea los textos etiquetando cada uno de los círculos
     var txt = elemEnter.append('text') //agrega un elemento de tipo text
-      .attr('dy', -35) // la posición en y
-      .attr('dx', -20) // la posición en x
+      .attr('dy', -175) // la posición en y
+      .attr('dx', -5) // la posición en x
       .text(function(d){ // extrae el texto del parametro `name`
         return d.name
       })
@@ -65,7 +65,7 @@
 
   var data = [
     {
-      count: {{nouns.length}},
+    count: {{nouns.length}},
       name: 'sustantivos'
     },
     {
