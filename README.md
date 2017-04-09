@@ -32,9 +32,11 @@ La actividad a realizar durante esta semana es la creación de una visualizació
 
 |  Criterio  | %      |  Calificación |
 |----------|:-------------:|------:|
-| Redacción, ortografía, citación de fuentes |  40% | - |
-| Suficiencia en la implementación técnica Compromise, D3.js |    60%   | - |
-| ** Nota Final** | | -|
+| Redacción, ortografía, citación de fuentes |  40% | 1.0 |
+| Suficiencia en la implementación técnica Compromise, D3.js |    60%   | 1.0 |
+| ** Nota Final** | | 1.0 |
+
+Actividad no realizada.
 
 ## Recursos
 
